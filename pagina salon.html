@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Sabor Real Ambateño</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fffaf0;
+    color: #292929;
+    line-height: 1.7;
+}
+
+/* ENCABEZADO */
+header {
+    background: linear-gradient(135deg, #111, #292929);
+    color: #e8bd50;
+    padding: 20px 35px;
+    border-bottom: 4px solid #c49a35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 180px;
+}
+
+.titulo-principal {
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #f5e9c9;
+    margin-top: 8px;
+}
+
+/* SELLO */
+.sello {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-4deg);
+    width: 150px;
+    height: 140px;
+    transition: 0.3s;
+    filter: drop-shadow(0 5px 8px #0009);
+}
+
+.sello:hover {
+    transform: translateY(-50%) rotate(0deg) scale(1.08);
+}
+
+.sello svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* NAVEGACIÓN */
+nav {
+    background: #1b1b1b;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 17px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px #0003;
+}
+
+nav a {
+    color: #e8bd50;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 9px 15px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #e8bd50;
+    color: #171717;
+}
+
+/* PORTADA */
+.hero {
+    min-height: 480px;
+    background:
+        linear-gradient(#0009, #0009),
+        url("portada.jpg") center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 35px 20px;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #f3cf69;
+    text-shadow: 2px 3px 8px #000;
+}
+
+.hero p {
+    font-size: 19px;
+    margin: 18px 0;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f0cf73, #bd8c20);
+    color: #171717;
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    margin: 7px;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px #0002;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px #0004;
+}
+
+/* SECCIONES */
+section {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.section-title {
+    color: #a77b19;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 4px;
+    background: #d5aa43;
+    margin: 12px auto;
+    border-radius: 5px;
+}
+
+/* NOSOTROS */
+.about {
+    background: #fffaf0;
+}
+
+.about p {
+    max-width: 850px;
+    margin: auto;
+    font-size: 16px;
+}
+
+/* MENÚ */
+.menu {
+    background: #f0e5d1;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    padding-bottom: 25px;
+    box-shadow: 0 6px 20px #0002;
+    transition: 0.35s;
+    border: 1px solid #ead9b5;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 13px 28px #0003;
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.04);
+}
+
+.card h3 {
+    color: #a77b19;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    margin: 17px 0 8px;
+}
+
+.card p {
+    padding: 0 18px;
+    font-size: 14px;
+}
+
+.price {
+    color: #252525;
+    font-weight: 800;
+    font-size: 19px;
+    margin: 15px;
+}
+
+/* VIDEO */
+.video-section {
+    background: #fffaf0;
+}
+
+.video-container {
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+.video-container video {
+    width: 100%;
+    max-height: 450px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px #0003;
+    border: 4px solid #d5aa43;
+}
+
+/* BEBIDAS */
+.drinks {
+    background: #f0e5d1;
+}
+
+.drinks ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.drinks li {
+    background: white;
+    max-width: 350px;
+    margin: 12px auto;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #0001;
+    font-weight: 600;
+}
+
+/* CONTACTO */
+.contact {
+    background: linear-gradient(135deg, #171717, #333);
+    color: white;
+}
+
+.contact h2 {
+    color: #e8bd50;
+}
+
+.contact p {
+    margin: 12px;
+}
+
+/* BOTÓN DE MÚSICA */
+.music-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    background: linear-gradient(135deg, #f0cf73, #bd8c20);
+    color: #171717;
+    border: 2px solid #fff0bd;
+    border-radius: 30px;
+    padding: 13px 19px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 5px 18px #0005;
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.06);
+}
+
+/* PIE DE PÁGINA */
+footer {
+    background: #101010;
+    color: #e8bd50;
+    text-align: center;
+    padding: 25px;
+    border-top: 3px solid #c49a35;
+    font-size: 14px;
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .sello {
+        position: static;
+        transform: rotate(-4deg);
+        width: 125px;
+        height: 115px;
+    }
+
+    .sello:hover {
+        transform: rotate(0deg) scale(1.05);
+    }
+
+    header h1 {
+        font-size: 29px;
+    }
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    nav {
+        gap: 3px;
+        padding: 10px 5px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .section-title {
+        font-size: 29px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .music-btn {
+        right: 12px;
+        bottom: 12px;
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO DE FONDO -->
+<audio id="musicaFondo" loop>
+    <source src="audiomusicmp3.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+</audio>
+
+<button class="music-btn" id="botonMusica" onclick="alternarMusica()">
+    🎵 Activar música
+</button>
+
+<!-- ENCABEZADO Y SELLO -->
+<header>
+    <div class="sello">
+        <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="oro" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ffe58a"/>
+                    <stop offset="50%" stop-color="#d49a18"/>
+                    <stop offset="100%" stop-color="#8b5700"/>
+                </linearGradient>
+            </defs>
+
+            <path d="M100 5 L115 15 L140 12 L153 28 L178 35 L175 60 L192 82 L180 105 L185 130 L160 143 L145 165 L120 160 L100 175 L80 160 L55 165 L40 143 L15 130 L20 105 L8 82 L25 60 L22 35 L47 28 L60 12 L85 15 Z"
+                  fill="#42200c" stroke="url(#oro)" stroke-width="7"/>
+
+            <circle cx="100" cy="85" r="68" fill="#683514" stroke="#f3cc57" stroke-width="3"/>
+
+            <text x="100" y="48" text-anchor="middle"
+                  fill="#fff" font-size="15" font-weight="bold">
+                SABOR TRADICIONAL
+            </text>
+
+            <text x="100" y="83" text-anchor="middle"
+                  fill="#fff3d0" font-size="22" font-weight="bold">
+                LAS FRITADAS
+            </text>
+
+            <text x="100" y="112" text-anchor="middle"
+                  fill="#ffdf55" font-size="29" font-weight="bold">
+                DE LA 12
+            </text>
+
+            <path d="M45 125 Q100 150 155 125"
+                  fill="none" stroke="#f3cc57" stroke-width="3"/>
+
+            <text x="100" y="146" text-anchor="middle"
+                  fill="#fff" font-size="13" font-weight="bold">
+                ECUADOR
+            </text>
+        </svg>
+    </div>
+
+    <div class="titulo-principal">
+        <h1>El Sabor Real Ambateño</h1>
+        <p>El sabor de casa, sazón y tradición en cada bocado</p>
+    </div>
+</header>
+
+<!-- NAVEGACIÓN -->
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#menu">Menú</a>
+    <a href="#video">Video</a>
+    <a href="#bebidas">Bebidas</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- INICIO -->
+<section class="hero" id="inicio">
+    <h2>¡Bienvenidos!</h2>
+    <p>Disfruta de la auténtica comida tradicional ecuatoriana.</p>
+    <a href="#menu" class="btn">Ver nuestro menú</a>
+</section>
+
+<!-- NOSOTROS -->
+<section class="about" id="nosotros">
+    <h2 class="section-title">Sobre nosotros</h2>
+    <p>
+        En El Sabor Real Ambateño celebramos la riqueza de la gastronomía
+        ecuatoriana. Ofrecemos comida tradicional preparada con ingredientes
+        frescos, dedicación y mucho cariño. Nuestro objetivo es compartir
+        los sabores típicos de Ambato y mantener viva nuestra tradición.
+    </p>
+</section>
+
+<!-- MENÚ -->
+<section class="menu" id="menu">
+    <h2 class="section-title">Nuestro menú</h2>
+    <p>Conoce nuestros deliciosos platos tradicionales.</p>
+
+    <div class="products">
+
+        <article class="card">
+            <img src="fritada.jpg.jpeg" alt="Plato de fritada ecuatoriana">
+            <h3>Fritada ecuatoriana</h3>
+            <p>
+                Deliciosa carne de cerdo acompañada de curtido,
+                tortilla de papa, mote, tostado y ají de la casa.
+            </p>
+            <div class="price">$3.00</div>
+            <button class="btn" onclick="pedirWhatsApp('Fritada ecuatoriana')">
+                Pedir información
+            </button>
+        </article>
+
+        <article class="card">
+            <img src="caldo de gallina.jpg.jpeg" alt="Caldo de gallina criolla">
+            <h3>Caldo de gallina</h3>
+            <p>
+                Sopa casera preparada con papas, hierbas
+                y el auténtico sabor de nuestra tradición.
+            </p>
+            <div class="price">$3.00</div>
+            <button class="btn" onclick="pedirWhatsApp('Caldo de gallina')">
+                Pedir información
+            </button>
+        </article>
+
+        <article class="card">
+            <img src="Gaseosa.jpg.jpeg" alt="Bebidas frías">
+            <h3>Gaseosas bien frías</h3>
+            <p>
+                Acompaña tus comidas con nuestras bebidas
+                refrescantes.
+            </p>
+            <div class="price">Precio a consultar</div>
+            <button class="btn" onclick="pedirWhatsApp('Gaseosas')">
+                Consultar precio
+            </button>
+        </article>
+
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+    <h2 class="section-title">Conoce nuestro sabor</h2>
+    <p>Descubre la tradición y el sabor de nuestra comida ecuatoriana.</p>
+
+    <div class="video-container">
+        <video controls poster="portada.jpg">
+            <source src="video fritada.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este video.
+        </video>
+    </div>
+
+    <p>¡Ven y disfruta de la auténtica comida ambateña!</p>
+</section>
+
+<!-- BEBIDAS -->
+<section class="drinks" id="bebidas">
+    <h2 class="section-title">Nuestras bebidas</h2>
+    <p>Tenemos diferentes opciones para acompañar tus platos:</p>
+
+    <ul>
+        <li> Coca-Cola</li>
+        <li> Pepsi</li>
+        <li> Fanta</li>
+        <li> Agua</li>
+    </ul>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+    <h2 class="section-title">Contáctanos</h2>
+    <p>Estamos listos para atenderte.</p>
+    <p>Teléfono: +593 99 519 6143</p>
+
+    <a class="btn" href="tel:+593995196143">Llamar ahora</a>
+
+    <a class="btn" href="https://wa.me/593995196143"
+       target="_blank" rel="noopener">
+       Escribir por WhatsApp
+    </a>
+</section>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <p>© 2026 El Sabor Real Ambateño</p>
+    <p>Tradición, calidad y sabor ecuatoriano.</p>
+</footer>
+
+<script>
+const whatsapp = "593995196143";
+
+function pedirWhatsApp(plato) {
+    const mensaje = `Hola, quisiera información y precio de: ${plato}.`;
+    const enlace = `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(enlace, "_blank");
+}
+
+/* CONTROL DE MÚSICA */
+const musica = document.getElementById("musicaFondo");
+const botonMusica = document.getElementById("botonMusica");
+
+musica.volume = 0.20;
+
+function alternarMusica() {
+    if (musica.paused) {
+        musica.play()
+            .then(() => {
+                botonMusica.textContent = "⏸️ Pausar música";
+            })
+            .catch(() => {
+                botonMusica.textContent = "🎵 Intentar de nuevo";
+            });
+    } else {
+        musica.pause();
+        botonMusica.textContent = "🎵 Activar música";
+    }
+}
+</script>
+
+</body>
+</html>
